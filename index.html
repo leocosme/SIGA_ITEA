@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>SIGA - ITEA Solutions</title>
 <link rel="icon" type="image/png" href="LOGO%20HD%20ITEA.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -290,8 +290,8 @@ h1,h2,h3,h4{font-family:var(--font-head);color:var(--ink);line-height:1.08;lette
 #progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--green-500),var(--orange));
   z-index:50;transition:width .5s cubic-bezier(.4,0,.2,1);box-shadow:0 0 10px rgba(242,137,28,.5)}
 #nav{position:fixed;bottom:clamp(10px,1.6vw,18px);left:50%;transform:translateX(-50%);z-index:50;
-  display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.6);backdrop-filter:blur(12px);
-  border:1px solid rgba(226,236,230,.7);border-radius:999px;padding:5px 8px;box-shadow:0 6px 18px rgba(15,61,36,.10)}
+  display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.46);backdrop-filter:blur(16px) saturate(1.05);
+  border:1px solid rgba(255,255,255,.58);border-radius:999px;padding:5px 8px;box-shadow:0 8px 22px rgba(15,61,36,.08)}
 .nav-btn{width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;display:grid;place-items:center;
   background:var(--green-700);color:#fff;transition:.25s;opacity:.92}
 .nav-btn:hover{background:var(--green-800);transform:scale(1.08);opacity:1}
@@ -367,6 +367,9 @@ h1,h2,h3,h4{font-family:var(--font-head);color:var(--ink);line-height:1.08;lette
     justify-content:space-between;
     gap:6px;
     padding:6px 8px;
+    background:rgba(255,255,255,.34);
+    border-color:rgba(255,255,255,.52);
+    box-shadow:0 8px 24px rgba(15,61,36,.07);
   }
   .nav-btn{width:34px;height:34px}
   .nav-btn svg{width:16px;height:16px}
@@ -388,6 +391,37 @@ h1,h2,h3,h4{font-family:var(--font-head);color:var(--ink);line-height:1.08;lette
   .cover h1{font-size:31px;max-width:none;letter-spacing:0}
   .cover-sub{font-size:15px;line-height:1.45}
   .pillar{padding:10px 13px;font-size:12px}
+  .slide[data-i="0"]{padding-top:18px}
+  .slide[data-i="0"] .cover-inner{
+    justify-content:center;
+    min-height:calc(100dvh - 138px - env(safe-area-inset-bottom));
+    padding-top:0;
+    padding-bottom:18px;
+  }
+  .slide[data-i="0"] .cover-logo{margin-bottom:24px}
+  .slide[data-i="0"] .cover-logo .ilogo{height:72px}
+  .slide[data-i="0"] .eyebrow-light{font-size:12px;line-height:1.35;margin-bottom:16px}
+  .slide[data-i="0"] .cover h1{font-size:38px;line-height:1.06}
+  .slide[data-i="0"] .cover-sub{font-size:17px;line-height:1.48;margin-top:22px}
+  .slide[data-i="0"] .pillars{margin-top:28px;gap:12px}
+  .slide[data-i="0"] .pillar{padding:12px 17px;font-size:14px}
+  .slide[data-i="0"] .pillar svg{width:20px;height:20px}
+  .slide[data-i="2"] .dash .tile{height:96px;padding:14px 12px}
+  .slide[data-i="2"] .dash .tile .t-num{font-size:24px}
+  .slide[data-i="2"] .dash .tile .t-lbl{font-size:10.5px;line-height:1.18;max-width:70px;position:relative;z-index:2}
+  .slide[data-i="2"] .dash .tile .spark{left:46%;right:8px;bottom:11px;height:30px;gap:4px}
+  .slide[data-i="2"] .dash .tile .spark span{min-width:8px}
+  .slide[data-i="2"] .dash .tile:nth-child(2) .t-lbl{max-width:none;font-size:10px}
+  .slide[data-i="2"] .dash .tile:nth-child(2) .spark{
+    left:12px;
+    right:12px;
+    bottom:6px;
+    height:14px;
+    opacity:.72;
+    z-index:1;
+  }
+  .slide[data-i="2"] .dash .tile:nth-child(2) .spark span{min-width:0}
+  .slide[data-i="2"] .dash .body{gap:10px;padding:14px}
   .s-head{margin-bottom:12px}
   .s-head .titlewrap{width:100%}
   .s-head .titlewrap>div:last-child{min-width:0}
