@@ -324,12 +324,19 @@ h1,h2,h3,h4{font-family:var(--font-head);color:var(--ink);line-height:1.08;lette
   body{overflow:hidden}
   #deck{overflow:hidden}
   .slide{
+    height:100dvh;
+    max-height:100dvh;
     padding:16px 18px calc(152px + env(safe-area-inset-bottom));
-    overflow-y:auto;
+    overflow-x:hidden;
+    overflow-y:scroll;
     -webkit-overflow-scrolling:touch;
     overscroll-behavior:contain;
+    touch-action:pan-y;
+    scroll-padding-bottom:calc(180px + env(safe-area-inset-bottom));
   }
-  .slide-inner{min-height:auto}
+  .slide-inner{min-height:max-content;padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+  .slide[data-i="2"]{padding-bottom:calc(230px + env(safe-area-inset-bottom))}
+  .slide[data-i="2"] .slide-inner::after{content:"";display:block;flex:0 0 190px}
   .grow{justify-content:flex-start}
   .s-head{gap:10px;margin-bottom:14px;align-items:flex-start}
   .s-head .titlewrap{gap:10px;align-items:flex-start}
