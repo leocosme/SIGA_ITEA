@@ -295,11 +295,14 @@ h1,h2,h3,h4{font-family:var(--font-head);color:var(--ink);line-height:1.08;lette
 #nav{position:fixed;bottom:clamp(10px,1.6vw,18px);left:50%;transform:translateX(-50%);z-index:50;
   display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.46);backdrop-filter:blur(16px) saturate(1.05);
   border:1px solid rgba(255,255,255,.58);border-radius:999px;padding:5px 8px;box-shadow:0 8px 22px rgba(15,61,36,.08)}
-.nav-btn{width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;display:grid;place-items:center;
-  background:var(--green-700);color:#fff;transition:.25s;opacity:.92}
-.nav-btn:hover{background:var(--green-800);transform:scale(1.08);opacity:1}
-.nav-btn:disabled{opacity:.28;cursor:default;transform:none}
-.nav-btn svg{width:14px;height:14px;stroke-width:2.6}
+.nav-btn{position:relative;width:28px;height:28px;border-radius:50%;border:none;cursor:pointer;display:grid;place-items:center;
+  background:var(--green-700);color:#fff;transition:.25s;opacity:1;overflow:hidden;isolation:isolate;
+  -webkit-appearance:none;appearance:none;transform:translateZ(0)}
+.nav-btn::before{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--green-700);z-index:0}
+.nav-btn:hover{transform:scale(1.08) translateZ(0)}
+.nav-btn:hover::before{background:var(--green-800)}
+.nav-btn:disabled{opacity:.34;cursor:default;transform:translateZ(0)}
+.nav-btn svg{position:relative;z-index:1;width:14px;height:14px;display:block;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
 .dots{display:flex;gap:5px;align-items:center}
 .dot-nav{width:6px;height:6px;border-radius:50%;background:var(--green-300);border:none;cursor:pointer;padding:0;transition:.25s}
 .dot-nav.on{background:var(--orange);width:16px;border-radius:4px}
@@ -321,7 +324,7 @@ h1,h2,h3,h4{font-family:var(--font-head);color:var(--ink);line-height:1.08;lette
   body{overflow:hidden}
   #deck{overflow:hidden}
   .slide{
-    padding:16px 18px calc(112px + env(safe-area-inset-bottom));
+    padding:16px 18px calc(152px + env(safe-area-inset-bottom));
     overflow-y:auto;
     -webkit-overflow-scrolling:touch;
     overscroll-behavior:contain;
@@ -378,7 +381,7 @@ h1,h2,h3,h4{font-family:var(--font-head);color:var(--ink);line-height:1.08;lette
   .bullets li{font-size:15px;line-height:1.45}
   .chips{gap:9px}
   .chip{padding:9px 13px;font-size:12px}
-  .client-note{padding-bottom:20px}
+  .client-note{padding-bottom:56px}
   .hint{display:none}
   #nav{
     width:min(88vw,520px);
